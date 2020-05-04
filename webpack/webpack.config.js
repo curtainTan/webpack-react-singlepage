@@ -56,6 +56,14 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        // 省略后缀
+        extensions: [ ".js", ".jsx", "json" ],
+        // import 省略路径
+        alias: {
+            "@components": path.resolve( "./src/components" )
+        }
+    },
     devServer: {
         contentBase: "/src",
         hot: true,
