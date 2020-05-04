@@ -30,6 +30,29 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "postcss-loader"
+                    }
+                ]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            name: "[path][name].[ext]",
+                            limit: 1024 * 40,
+                            // fallback: "file-loader"
+                        }
+                    }
+                ]
             }
         ]
     },

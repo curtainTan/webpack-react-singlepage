@@ -1,0 +1,18 @@
+
+
+body{
+    background-color: aqua;
+    animation: tan 2s;
+}
+
+
+@keyframes tan{
+    0% {
+        background-color: aqua;
+    }
+    100% {
+        background-color: rgb(235, 68, 52);
+    }
+}
+
+
