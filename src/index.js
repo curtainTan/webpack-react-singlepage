@@ -1,6 +1,17 @@
+import React, { Component } from "react"
+import ReactDOM from "react-dom"
+
+class App extends Component {
+    render(){
+        return (
+            <div>你好--</div>
+        )
+    }
+}
 
 
-var a = "ccc"
-console.log( a )
+
+ReactDOM.render( <App />, document.getElementById("app") )
+
 
 
