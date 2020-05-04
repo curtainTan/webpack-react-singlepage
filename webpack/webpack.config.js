@@ -32,6 +32,11 @@ module.exports = {
                 ]
             }
         ]
+    },
+    devServer: {
+        contentBase: "/src",
+        hot: true,
+        open: true
     }
 }
 
