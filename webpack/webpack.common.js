@@ -7,7 +7,7 @@ const miniCssExtractPlugin = require("mini-css-extract-plugin")
 module.exports = {
     entry: "./src/index.js",
     output: {
-        filename: "bundle.js",
+        filename: "js/bundle.js",
         path: path.resolve( "./dist" )
     },
     module: {
@@ -62,8 +62,8 @@ module.exports = {
             template: "./static/index.html"
         }),
         new miniCssExtractPlugin({
-            filename: devMode ? "[name].css" : "[name]_[hash:5].css",
-            chunkFilename: devMode ? "[id].css" : "[id]_[hash:5].css"
+            filename: devMode ? "css/[name].css" : "css/[name]_[hash:5].css",
+            chunkFilename: devMode ? "css/[id].css" : "css/[id]_[hash:5].css"
         })
     ],
     resolve: {
