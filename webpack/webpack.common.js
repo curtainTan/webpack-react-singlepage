@@ -1,4 +1,3 @@
-
 const path = require("path")
 const HTMLWebpackPlugin = require("html-webpack-plugin")
 
@@ -8,7 +7,6 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve( "./dist" )
     },
-    mode: "development",
     plugins: [
         new HTMLWebpackPlugin({
             template: "./static/index.html"
@@ -63,11 +61,6 @@ module.exports = {
         alias: {
             "@components": path.resolve( "./src/components" )
         }
-    },
-    devServer: {
-        contentBase: "/src",
-        hot: true,
-        open: true
     }
 }
 
