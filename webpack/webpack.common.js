@@ -1,5 +1,9 @@
 const path = require("path")
 const HTMLWebpackPlugin = require("html-webpack-plugin")
+const devMode = process.env.NODE_ENV !== "production"
+const miniCssExtractPlugin = require("mini-css-extract-plugin")
+
+
 
 module.exports = {
     entry: "./src/index.js",
@@ -7,11 +11,6 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve( "./dist" )
     },
-    plugins: [
-        new HTMLWebpackPlugin({
-            template: "./static/index.html"
-        })
-    ],
     module: {
         rules: [
             {
@@ -32,7 +31,12 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    "style-loader",
+                    devMode ? "style-loader" : {
+                        loader: miniCssExtractPlugin.loader,
+                        options: {
+                            hmr: devMode
+                        }
+                    },
                     "css-loader",
                     {
                         loader: "postcss-loader"
@@ -54,6 +58,15 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: "./static/index.html"
+        }),
+        new miniCssExtractPlugin({
+            filename: devMode ? "[name].css" : "[name]_[hash:5].css",
+            chunkFilename: devMode ? "[id].css" : "[id]_[hash:5].css"
+        })
+    ],
     resolve: {
         // 省略后缀
         extensions: [ ".js", ".jsx", "json" ],
