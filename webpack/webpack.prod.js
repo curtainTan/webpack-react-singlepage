@@ -7,7 +7,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const DLLReferencePlugin = require("webpack/lib/DllReferencePlugin")
 const AddAssetHTMLWebpackPlugin = require("add-asset-html-webpack-plugin")
-
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 
 module.exports = merge(common, {
     mode: "production",
@@ -22,7 +22,8 @@ module.exports = merge(common, {
         // 引入资源
         new AddAssetHTMLWebpackPlugin({
             filepath: path.resolve( __dirname, "../dll", "react.dll.js" )
-        })
+        }),
+        new BundleAnalyzerPlugin()
     ],
     optimization: {
         minimizer: [
