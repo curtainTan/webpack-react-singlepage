@@ -23,6 +23,13 @@
           "regenerator": true,
           "useESModules": false
         }
+      ],
+      [
+        "import",{
+            "libraryName":"antd",
+            "libraryDirectory":"es",
+            "style":"css"
+        }
       ]
     ]
 }
