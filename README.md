@@ -252,6 +252,44 @@ plugins: [
 3. 配置 AddAssetHTMLWebpackPlugin 提前引入打包好的第三方文件
 
 
+## 配置 antd
+
+1. 安装 antd
+```
+yarn add antd
+```
+
+2. 安装 babel-plugin-import 完成按需加载
+
+```
+yarn add babel-plugin-import --dev
+```
+3. 配置 .babelrc 文件
+```json
+{
+    "presets":[
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ],
+    "plugins":[[
+        "import",{
+            "libraryName":"antd",
+            "libraryDirectory":"es",
+            "style":"css"
+        }]
+    ]
+}
+```
+
+4. 引入组件即可
+
+```js
+// babel-plugin-import 会帮助你加载 JS 和 CSS
+import { Button } from 'antd';
+```
+
+## 配置 react-router 和 redux
+
 
 ## 后记
 
