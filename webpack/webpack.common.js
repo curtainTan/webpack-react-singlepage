@@ -28,6 +28,22 @@ module.exports = {
                 ]
             },
             {
+                test: /\.less$/,
+                use: [
+                    devMode ? "style-loader" : {
+                        loader: miniCssExtractPlugin.loader,
+                        options: {
+                            hmr: devMode
+                        }
+                    },
+                    "css-loader",
+                    {
+                        loader: "postcss-loader"
+                    },
+                    "less-loader"
+                ]
+            },
+            {
                 test: /\.css$/,
                 use: [
                     devMode ? "style-loader" : {
