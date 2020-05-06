@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import "./style/index.css"
 import "./style/test.less"
 import { Button } from "antd"
+import { HashRouter,  } from "react-router-dom"
 
 
 class App extends Component {
