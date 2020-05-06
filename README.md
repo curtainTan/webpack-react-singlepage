@@ -288,7 +288,13 @@ yarn add babel-plugin-import --dev
 import { Button } from 'antd';
 ```
 
-## 配置 react-router 和 redux
+## 配置 react-router
+
+**关于 react-router 和 react-router-dom**
+
+区别：
+1. react-router-dom 封装了 Router 为 HashRouter 和 BrowserRouter
+2. react-router-dom 多了 dom 操作的 Link Nav-Link 路由跳转标签
 
 
 ## 后记
@@ -301,4 +307,6 @@ import { Button } from 'antd';
 [MisLab-React-Cli-SinglePage](https://github.com/mis-lab/MisLab-React-Cli-SinglePage)
 
 [从零开始的 webpack4 + React 构建](https://juejin.im/post/5ea3ebc9518825738b422f4c)
+
+[webpack4+react+antd从零搭建React脚手架（三）-路由搭建](https://blog.csdn.net/weixin_38023551/article/details/82839355)
 
