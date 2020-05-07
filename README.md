@@ -296,6 +296,107 @@ import { Button } from 'antd';
 1. react-router-dom 封装了 Router 为 HashRouter 和 BrowserRouter
 2. react-router-dom 多了 dom 操作的 Link Nav-Link 路由跳转标签
 
+## 配置 redux
+
+**配置过程**
+
+1. 安装插件
+```
+yarn add redux react-redux
+```
+
+2. 编写 store 
+
+**总共分两步：**配置 redux 的 store，使用 react-redux 使用 store
+
+- 创建 store 文件夹，用于存放 store 相关文件
+- 编写 index.js 创建 store
+```js
+import { createStore } from "redux"
+import { composeWithDevTools } from "redux-devtools-extension"
+
+import reducer from "./reducer"
+
+const store = createStore(
+    reducer,
+    composeWithDevTools()
+)
+
+export default store
+```
+- 编写 reducer.js 文件，合并多个 reducer
+```js
+import { combineReducers } from "redux"
+import countState from "./count/index"
+
+export default combineReducers({
+    countState
+})
+```
+- 创建 counter/index.js 文件编写 state 文件
+```js
+const countData = {
+    count: 1
+}
+
+export default ( state = countData, action ) => {
+    switch( action.type ){
+        case "add":
+            state.count += 1
+            return { ...state }
+        default: return state
+    }
+}
+```
+- 在顶层引入 `Provider` ， 把 store 注入 context 
+- 在组件层使用 `connect` ，获取 store 使用 store
+
+```js
+class Home extends Component{
+  handleClick = () => {
+      var action = {
+          type: "add"
+      }
+      this.props.add( action )
+  }
+  ...
+}
+
+function mapState( state ){
+    console.log( state )
+    return {
+        count: state.countState.count
+    }
+}
+
+function mapDispatch( dispatch ){
+    return {
+        add( action ){
+            dispatch( action )
+        }
+    }
+}
+
+export default connect( mapState, mapDispatch )(Home)
+```
+
+## 关于使用箭头函数绑定 this
+
+当我们在类里直接定义箭头函数属性时，会报错，此时需要引入插件 `@babel/plugin-proposal-class-properties`
+
+**配置：**
+```json
+{
+  "plugins":[
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ]
+  ]
+}
+```
 
 ## 后记
 
@@ -310,3 +411,8 @@ import { Button } from 'antd';
 
 [webpack4+react+antd从零搭建React脚手架（三）-路由搭建](https://blog.csdn.net/weixin_38023551/article/details/82839355)
 
+[Redux + React-router 的入门📖和配置👩🏾‍💻教程](https://juejin.im/post/5dcaaa276fb9a04a965e2c9b)
+
+[箭头函数报错](https://blog.csdn.net/DXsunrise/article/details/96931507?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1)
+
+[react绑定this的几种方式](https://www.jianshu.com/p/cac14fbc9b45)
