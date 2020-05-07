@@ -13,7 +13,7 @@
 8. - [x] 创建分支引入 antd
 9. - [x] 创建分支引入 react-router-dom
 10. - [x] 创建分支引入 redux
-11. - [x] 创建分支配置 ESLint
+11. - [ ] 创建分支配置 ESLint
 
 ## 功能
 
