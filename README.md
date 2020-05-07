@@ -305,3 +305,8 @@ import { Button } from 'antd';
 [使用webpack配置antd，在webpack中引入antd并按需加载使用的组件](https://blog.csdn.net/MFWSCQ/article/details/100828460)
 
 [webpack4+react+antd从零搭建React脚手架（三）-路由搭建](https://blog.csdn.net/weixin_38023551/article/details/82839355)
+
+[从零开始配置TypeScript + React + React-Router + Redux + Webpack开发环境](https://www.cnblogs.com/baqiphp/p/7647912.html)
+
+[箭头函数报错](https://blog.csdn.net/DXsunrise/article/details/96931507?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1)
+
